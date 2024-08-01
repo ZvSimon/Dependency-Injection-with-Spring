@@ -1,21 +1,17 @@
 package guru.springframework.dependencyinjectionwithspring.controllers;
 
 import guru.springframework.dependencyinjectionwithspring.services.GreetingService;
-import guru.springframework.dependencyinjectionwithspring.services.GreetingServiceImpl;
 import org.springframework.stereotype.Controller;
 
-@Controller
-public class MyController {
+
+public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
-   public MyController(){
-       this.greetingService=new GreetingServiceImpl();
-   }
-
-    public String sayHello(){
-        System.out.println("I'm in the controller");
-
-        return greetingService.sayGreeting();
+    public ConstructorInjectedController(GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
 
+    public String sayHello(){
+        return greetingService.sayGreeting();
+    }
 }
