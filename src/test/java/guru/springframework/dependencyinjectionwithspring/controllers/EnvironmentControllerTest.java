@@ -1,19 +1,20 @@
-package guru.springframework.dependencyinjectionwithspring.controllers.i18n;
+package guru.springframework.dependencyinjectionwithspring.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-//@ActiveProfiles("ES")
+@ActiveProfiles({"dev", "EN"})
 @SpringBootTest
-class myi18NControllerTestES {
+class EnvironmentControllerTest {
 
     @Autowired
-    Myi18NController myi18NController;
+    EnvironmentController controller;
 
     @Test
-    void sayHello() {
-        System.out.println(myi18NController.sayHello());
+    void getEnvironment() {
+        System.out.println(controller.getEnvironment());
+
     }
 }
